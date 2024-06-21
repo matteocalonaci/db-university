@@ -55,7 +55,7 @@ INNER JOIN teachers ON degrees.id = teachers.id;
 6. Selezionare tutti i docenti che insegnano nel Dipartimento di
 Matematica (54)
 
-SELECT teachers.name AS Nome, teachers.surname AS Cognome, departments.name AS Nome_Dipartimento 
+SELECT DISTINCT  teachers.name AS Nome, teachers.surname AS Cognome, departments.name AS Nome_Dipartimento 
 FROM departments
 INNER JOIN degrees ON degrees.department_id = departments.id
 INNER JOIN courses ON courses.degree_id = degrees.id
@@ -63,7 +63,7 @@ INNER JOIN course_teacher ON course_teacher.course_id = courses.id
 INNER JOIN teachers ON course_teacher.teacher_id = teachers.id
 WHERE( departments.name = 'Dipartimento di Matematica');
 
-=> 70
+=> 70 con l'aggiunta di DISTRICT => 54
 --------------------------------------------------
 
 7. BONUS: Selezionare per ogni studente il numero di tentativi sostenuti
